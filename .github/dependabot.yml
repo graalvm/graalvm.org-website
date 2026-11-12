@@ -1,0 +1,20 @@
+version: 2
+
+multi-ecosystem-groups:
+  update-gha:
+    schedule:
+      interval: 'monthly'
+  update-bundler:
+    schedule:
+      interval: 'monthly'
+
+updates:
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    patterns: ['*']
+    multi-ecosystem-group: 'update-gha'
+
+  - package-ecosystem: 'bundler'
+    directory: '/'
+    patterns: ['*']
+    multi-ecosystem-group: 'update-bundler'
