@@ -187,7 +187,7 @@
 			<div class="downloads__option-tabs">
 				<div class="col-12 col-sm-12 col-md-12 col-lg-12">
 					<div class="row tabsline">
-						<div class="text-center download-tab first-tab">
+						<div class="text-center download-tab first-tab active">
 							<button class="select">
 								<p class="downloads__tabname">GitHub Actions</p>
 							</button>
@@ -197,7 +197,7 @@
 								<p class="downloads__tabname">Container Images</p>
 							</button>
 						</div>
-						<div class="text-center download-tab active">
+						<div class="text-center download-tab">
 							<button class="select">
 								<p class="downloads__tabname">SDKMAN!</p>
 							</button>
@@ -216,7 +216,7 @@
 				</div>
 				<!-- Tabs content -->
 				<!-- GitHub Actions -->
-				<div class="" id="dl-tab-gha" style="display:none;">
+				<div class="" id="dl-tab-gha">
 					<div class="tab-container">
 						<div class="tab-content__card">
 							<div class="tab-content__row">
@@ -277,13 +277,13 @@ docker pull container-registry.oracle.com/graalvm/jdk:25i5</code></pre>
 					</div>
 				</div>
 				<!-- SDKMAN! -->
-				<div class="" id="dl-tab-sdkman">
+				<div class="" id="dl-tab-sdkman" style="display:none;">
 					<div class="tab-container">
 						<div class="tab-content__card">
 							<div class="tab-content__row">
 								<div class="tab-content__part1">
 									<div class="sdk__snippet">
-										<pre><code class="language-shell codetext" id="dl-snippet-sdkman">sdk install java 25.5.5</code></pre>
+										<pre><code class="language-shell codetext" id="dl-snippet-sdkman">sdk install java 25.4.4.1+1-graal</code></pre>
 									</div>
 								</div>
 								<div class="tab-content__part2">
