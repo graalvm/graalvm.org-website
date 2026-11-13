@@ -34,7 +34,7 @@ jobs:
 
     steps:
       - name: Check out Graal sources
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        uses: actions/checkout@v7.0.1
         with:
           repository: oracle/graal
           ref: master
@@ -47,7 +47,7 @@ jobs:
           echo "MX_VERSION=$MX_VERSION" >> "$GITHUB_ENV"
 
       - name: Check out mx
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        uses: actions/checkout@v7.0.1
         with:
           repository: graalvm/mx
           ref: ${{ env.MX_VERSION }}
@@ -55,7 +55,7 @@ jobs:
           fetch-depth: 1
 
       - name: Set up Python
-        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        uses: actions/setup-python@v7.1.0
         with:
           python-version: '3.8'
 
@@ -116,7 +116,7 @@ jobs:
           rsync --archive --delete "$compiler_javadoc/" "$destination/graphio/"
 
       - name: Upload Javadocs
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        uses: actions/upload-artifact@v7.0.2
         with:
           name: javadocs-${{ matrix.version }}
           path: javadocs
@@ -135,14 +135,14 @@ jobs:
 
     steps:
       - name: Check out gh-pages
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        uses: actions/checkout@v7.0.1
         with:
           ref: gh-pages
           path: gh-pages
           fetch-depth: 1
 
       - name: Download Javadocs
-        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        uses: actions/download-artifact@v8.0.2
         with:
           pattern: javadocs-*
           path: javadocs
