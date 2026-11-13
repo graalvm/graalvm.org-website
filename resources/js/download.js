@@ -95,9 +95,9 @@ const fullJavaVersions = {
 
 const sdkmanJavaVersions = {
   "17": "17.0.12",
-  "21": "21.0.12",   // 21.0.13 not on SDKMAN yet
-  "25": "25.0.4",     // 25.0.5 not on SDKMAN yet
-  "25.5": "25.4.4.1+1", // 25.5 not on SDKMAN yet
+  "21": "21.0.12",
+  "25": "25.0.5.0+3",
+  "25.5": "25.5.5.0+3",
 }
 
 const downloadArtifacts = {
