@@ -3,7 +3,7 @@ name: Deploy Javadocs
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 0 * * *'
+    - cron: '30 0 * * 1'
 
 permissions:
   contents: read
