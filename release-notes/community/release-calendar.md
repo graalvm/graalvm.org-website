@@ -35,10 +35,10 @@ All active releases receive patch updates.
 | Date               | Type          | Oracle GraalVM                   | GraalVM Community Edition | GraalPy (Python version) |
 |--------------------|---------------|----------------------------------|---------------------------|--------------------------|
 | November 17, 2026  | CSPU          | 25.0.5.1, 21.0.13.1, 17.0.21.1   | -                         | -                        |
-| November 24, 2026  | Feature       | 25.6.5.1                         | 25.6.5.1                  | 25.6.5 (3.13)            |
+| November 24, 2026  | Feature       | 25.6.0                           | 25.6.0                    | 25.6.0 (3.13)            |
 | January 19, 2027   | CPU           | 25.0.6, 21.0.14, 17.0.22         | -                         |  -                       |
-| January 26, 2027   | Feature       | 25.7.6                           | 25.7.6                    | 25.7.6 (3.13)            |
-| February 23, 2027  | Feature       | 25.8.6                           | 25.8.6                    | 25.8.6 (3.13)            |
+| January 26, 2027   | Feature       | 25.7.0                           | 25.7.0                    | 25.7.0 (3.13)            |
+| February 23, 2027  | Feature       | 25.8.0                           | 25.8.0                    | 25.8.0 (3.13)            |
 
 GraalPy supports a new Python version once it enters the security-fix phase. See [Python versions](https://devguide.python.org/versions/) for the Python release schedule.
 
