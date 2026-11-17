@@ -1,4 +1,4 @@
-let currentMajorJavaVersion = "25.5";
+let currentMajorJavaVersion = "25.6";
 let currentPlatform = "empty-choice";
 let currentDownloadLink = null;
 
@@ -90,26 +90,26 @@ const fullJavaVersions = {
   "17": "17.0.12",
   "21": "21.0.13.1",
   "25": "25.0.5.1",
-  "25.5": "25.5.5",
+  "25.6": "25.6.5.1",
 }
 
 const sdkmanJavaVersions = {
   "17": "17.0.12",
   "21": "21.0.12",
   "25": "25.0.5.1",
-  "25.5": "25.5.5.0+3",
+  "25.6": "25.5.5.0+3",
 }
 
 const downloadArtifacts = {
-  "25.5": {
-    baseUrl: "https://gds.oracle.com/download/graal/25i5",
-    latestVersion: "25i5-25",
-    archiveVersion: "25i5-25.0.5.0.3",
+  "25.6": {
+    baseUrl: "https://gds.oracle.com/download/graal/25i6",
+    latestVersion: "25i6-25",
+    archiveVersion: "25i6-25.0.5.1",
   },
 }
 
 function updateGHASnippet(majorJavaVersion) {
-  const usesGraalVMVersion = majorJavaVersion === "25" || majorJavaVersion === "25.5";
+  const usesGraalVMVersion = majorJavaVersion === "25" || majorJavaVersion === "25.6";
   const versionInput = usesGraalVMVersion ? "version" : "java-version";
   const selectedVersion = majorJavaVersion === "25" ? "25.0" :
     usesGraalVMVersion ? majorJavaVersion : fullJavaVersions[majorJavaVersion] || majorJavaVersion;
@@ -121,7 +121,7 @@ function updateGHASnippet(majorJavaVersion) {
 }
 
 function updateContainerSnippet(majorJavaVersion) {
-  const imageTag = majorJavaVersion === "25.5" ? "25i5" : majorJavaVersion;
+  const imageTag = majorJavaVersion === "25.6" ? "25i6" : majorJavaVersion;
   $("#dl-snippet-containers").text(`# GraalVM JDK with Native Image
 docker pull container-registry.oracle.com/graalvm/native-image:${imageTag}
 
@@ -154,8 +154,8 @@ curl -LO ${baseUrl}/archive/graalvm-jdk-${archiveVersion}_${platform}_bin.${file
 
 function updateDownloadButton(majorJavaVersion) {
   let versionLabel = '';
-  if (majorJavaVersion === "25.5") {
-    versionLabel = "25.5 (Innovation)";
+  if (majorJavaVersion === "25.6") {
+    versionLabel = "25.6 (Innovation)";
   } else if (majorJavaVersion === "25") {
     versionLabel = "25.0 (LTS)";
   } else if (majorJavaVersion === "21") {
@@ -204,7 +204,7 @@ function toggleDownloadBanners(majorJavaVersion) {
   jdk17Banner.style.display = "none";
   jdk17Banner.classList.remove("visible");
 
-  if (majorJavaVersion === "25.5" || majorJavaVersion === "25" || majorJavaVersion === "21") {
+  if (majorJavaVersion === "25.6" || majorJavaVersion === "25" || majorJavaVersion === "21") {
     allJdkBanner.style.display = "block";
     setTimeout(() => allJdkBanner.classList.add("visible"), 10);
     optionTabs.style.display = "";

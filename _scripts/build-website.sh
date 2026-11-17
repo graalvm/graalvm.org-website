@@ -10,17 +10,17 @@ ruby _scripts/generate-library-and-framework-list.rb
 
 # Build the latest documentation
 # Build the non-versioned site and redirects for non-versioned URLs
-./_scripts/pull-extra.sh release/graal-vm/25.5
+./_scripts/pull-extra.sh release/graal-vm/25.6
 ruby _scripts/process_front_matter.rb --add-title pages release-notes
 ruby _scripts/process_front_matter.rb --add-title --add-version-to-permalinks --add-versioned-redirects docs truffle/docs espresso/docs web-image/docs pages/redirects
 bundle exec jekyll build --config _configs/config_community_latest.yml
 
 # Build the versioned feature release documentation
-bundle exec jekyll build --destination jdk25.5 --config _configs/config_community_jdk25i.yml
-./_scripts/merge_sitemaps.rb _site/sitemap.xml jdk25.5/sitemap.xml https://www.graalvm.org/jdk25.5/
-rsync -av jdk25.5/jdk25.5 _site/
-rsync -av --exclude "*.html" jdk25.5/docs _site/
-rm -rf jdk25.5
+bundle exec jekyll build --destination jdk25.6 --config _configs/config_community_jdk25i.yml
+./_scripts/merge_sitemaps.rb _site/sitemap.xml jdk25.6/sitemap.xml https://www.graalvm.org/jdk25.6/
+rsync -av jdk25.6/jdk25.6 _site/
+rsync -av --exclude "*.html" jdk25.6/docs _site/
+rm -rf jdk25.6
 
 # Build DEV documentation (always from master)
 ./_scripts/pull-extra.sh master
