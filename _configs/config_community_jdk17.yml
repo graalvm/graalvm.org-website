@@ -372,6 +372,7 @@ exclude:
   - jdk17
   - dev
   - pages/native-image/libraries-and-frameworks-with-header.md
+  - docs/getting-started/container-images/oracle*.md
   - docs/getting-started/graalvm-enterprise
   - docs/reference-manual.md
   - docs/README.md

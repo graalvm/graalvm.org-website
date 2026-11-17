@@ -409,7 +409,7 @@ exclude:
   - jdk17
   - dev
   - pages/native-image/libraries-and-frameworks-with-header.md
-  - docs/getting-started/container-images/oracle-graalvm-container-images.md
+  - docs/getting-started/container-images/oracle*.md
   - docs/oracle-graalvm
   - docs/reference-manual.md
   - docs/README.md
