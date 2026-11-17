@@ -296,6 +296,7 @@ tables_of_contents:
       - main_link: docs/reference-manual/native-image/NativeImageBasics.md
       - main_link: docs/reference-manual/native-image/BuildOverview.md
       - main_link: docs/reference-manual/native-image/ReachabilityMetadata.md
+      - main_link: docs/reference-manual/native-image/RuntimeClassLoading.md
       - main_link: docs/reference-manual/native-image/OptimizationsAndPerformance.md
       - main_link: docs/reference-manual/native-image/DebuggingAndDiagnostics.md
       - main_link: docs/reference-manual/native-image/DynamicFeatures.md
@@ -316,6 +317,7 @@ tables_of_contents:
           docs/reference-manual/native-image/BuildOptions.md
         ]
       - main_link: docs/reference-manual/native-image/ReachabilityMetadata.md
+      - main_link: docs/reference-manual/native-image/RuntimeClassLoading.md
       - main_link: docs/reference-manual/native-image/OptimizationsAndPerformance.md
       - main_link: docs/reference-manual/native-image/DebuggingAndDiagnostics.md
       - main_link: docs/reference-manual/native-image/DynamicFeatures.md
@@ -329,6 +331,7 @@ tables_of_contents:
       - main_link: docs/reference-manual/native-image/NativeImageBasics.md
       - main_link: docs/reference-manual/native-image/BuildOverview.md
       - main_link: docs/reference-manual/native-image/ReachabilityMetadata.md
+      - main_link: docs/reference-manual/native-image/RuntimeClassLoading.md
         links: [
           docs/reference-manual/native-image/Compatibility.md,
           docs/reference-manual/native-image/AutomaticMetadataCollection.md,
@@ -347,6 +350,7 @@ tables_of_contents:
       - main_link: docs/reference-manual/native-image/NativeImageBasics.md
       - main_link: docs/reference-manual/native-image/BuildOverview.md
       - main_link: docs/reference-manual/native-image/ReachabilityMetadata.md
+      - main_link: docs/reference-manual/native-image/RuntimeClassLoading.md
       - main_link: docs/reference-manual/native-image/OptimizationsAndPerformance.md
         links: [
           docs/reference-manual/native-image/MemoryManagement.md,
@@ -378,6 +382,7 @@ tables_of_contents:
       - main_link: docs/reference-manual/native-image/NativeImageBasics.md
       - main_link: docs/reference-manual/native-image/BuildOverview.md
       - main_link: docs/reference-manual/native-image/ReachabilityMetadata.md
+      - main_link: docs/reference-manual/native-image/RuntimeClassLoading.md
       - main_link: docs/reference-manual/native-image/OptimizationsAndPerformance.md
       - main_link: docs/reference-manual/native-image/DebuggingAndDiagnostics.md
         links: [
@@ -400,6 +405,7 @@ tables_of_contents:
       - main_link: docs/reference-manual/native-image/NativeImageBasics.md
       - main_link: docs/reference-manual/native-image/BuildOverview.md
       - main_link: docs/reference-manual/native-image/ReachabilityMetadata.md
+      - main_link: docs/reference-manual/native-image/RuntimeClassLoading.md
       - main_link: docs/reference-manual/native-image/OptimizationsAndPerformance.md
       - main_link: docs/reference-manual/native-image/DebuggingAndDiagnostics.md
       - main_link: docs/reference-manual/native-image/DynamicFeatures.md
@@ -419,6 +425,7 @@ tables_of_contents:
       - main_link: docs/reference-manual/native-image/NativeImageBasics.md
       - main_link: docs/reference-manual/native-image/BuildOverview.md
       - main_link: docs/reference-manual/native-image/ReachabilityMetadata.md
+      - main_link: docs/reference-manual/native-image/RuntimeClassLoading.md
       - main_link: docs/reference-manual/native-image/OptimizationsAndPerformance.md
       - main_link: docs/reference-manual/native-image/DebuggingAndDiagnostics.md
       - main_link: docs/reference-manual/native-image/DynamicFeatures.md
@@ -437,6 +444,7 @@ tables_of_contents:
       - main_link: docs/reference-manual/native-image/NativeImageBasics.md
       - main_link: docs/reference-manual/native-image/BuildOverview.md
       - main_link: docs/reference-manual/native-image/ReachabilityMetadata.md
+      - main_link: docs/reference-manual/native-image/RuntimeClassLoading.md
       - main_link: docs/reference-manual/native-image/OptimizationsAndPerformance.md
       - main_link: docs/reference-manual/native-image/DebuggingAndDiagnostics.md
       - main_link: docs/reference-manual/native-image/DynamicFeatures.md
