@@ -36,7 +36,7 @@
           <a href='{{ "/latest/docs/" | relative_url }}' class="menu__link">Docs</a>
         </li>
         <li class="menu__item">
-          <a href='{{ "/guides/" | relative_url }}' class="menu__link">Guides</a>
+          <a href='{{ "/" | append: site.version | append: "/guides/" | relative_url }}' class="menu__link">Guides</a>
         </li>
         <li class="menu__item">
           <a href="https://medium.com/graalvm" class="menu__link" target="_blank">Blog</a>
@@ -81,7 +81,7 @@
                   </div>
                   <div class="stack__item">
                     <img src="/resources/img/header-navigation/java-navi.svg">
-                    <a href='{{ "/reference-manual/java-on-truffle/" | relative_url }}' class="item-line">Espresso</a>
+                    <a href='{{ "/" | append: site.version | append: "/reference-manual/java-on-truffle/" | relative_url }}' class="item-line">Espresso</a>
                   </div>
                 </div>
               </div>

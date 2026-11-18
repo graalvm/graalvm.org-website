@@ -37,6 +37,7 @@ layout: page_content
   </div>
 </section>
 {% endcomment %}
+{% assign docs_version_root = "/" | append: site.version %}
 <section>
   <div class="wrapper">
     <div class="graal-docs">
@@ -46,13 +47,13 @@ layout: page_content
           <div class="graal-docs__column">
             <div class="graal-docs__card">
               <img src='{{ "/resources/img/downloads-new/miscellaneous-book.svg" | relative_url }}' alt="introduction docs icon">
-              <a href='{{ "/docs/introduction/" | relative_url }}'>
+              <a href='{{ docs_version_root | append: "/introduction/" | relative_url }}'>
                 <div class="graal-docs__topics">Introduction</div>
               </a>
             </div>
             <div class="graal-docs__card">
               <img src='{{ "/resources/img/downloads-new/miscellaneous-book.svg" | relative_url }}' alt="security guide docs icon">
-              <a href='{{ "/security-guide/" | relative_url }}'>
+              <a href='{{ docs_version_root | append: "/security-guide/" | relative_url }}'>
                 <div class="graal-docs__topics">Security Guide</div>
               </a>
             </div>
@@ -60,7 +61,7 @@ layout: page_content
           <div class="graal-docs__column">
             <div class="graal-docs__card">
               <img src='{{ "/resources/img/downloads-new/miscellaneous-book.svg" | relative_url }}' alt="installation docs icon">
-              <a href='{{ "/docs/getting-started/" | relative_url }}'>
+              <a href='{{ docs_version_root | append: "/getting-started/" | relative_url }}'>
                 <div class="graal-docs__topics">Installation</div>
               </a>
             </div>
@@ -74,7 +75,7 @@ layout: page_content
           <div class="graal-docs__column">
             <div class="graal-docs__card">
               <img src='{{ "/resources/img/downloads-new/miscellaneous-book.svg" | relative_url }}' alt="container images docs icon">
-              <a href='{{ "/docs/getting-started/container-images/" | relative_url }}' target="_blank">
+              <a href='{{ docs_version_root | append: "/getting-started/container-images/" | relative_url }}' target="_blank">
                 <div class="graal-docs__topics">Container Images</div>
               </a>
             </div>
@@ -94,19 +95,19 @@ layout: page_content
           <div class="graal-docs__column">
             <div class="graal-docs__card">
               <img src='{{ "/resources/img/downloads-new/miscellaneous-book.svg" | relative_url }}' alt="getting started docs icon">
-              <a href='{{ "/reference-manual/native-image/" | relative_url }}'>
+              <a href='{{ docs_version_root | append: "/reference-manual/native-image/" | relative_url }}'>
                 <div class="graal-docs__topics">Getting Started</div>
               </a>
             </div>
             <div class="graal-docs__card">
               <img src='{{ "/resources/img/downloads-new/miscellaneous-book.svg" | relative_url }}' alt="optimizations docs icon">
-              <a href='{{ "/reference-manual/native-image/optimizations-and-performance/" | relative_url }}'>
+              <a href='{{ docs_version_root | append: "/reference-manual/native-image/optimizations-and-performance/" | relative_url }}'>
                 <div class="graal-docs__topics">Optimizations and Performance</div>
               </a>
             </div>
             <div class="graal-docs__card">
               <img src='{{ "/resources/img/downloads-new/miscellaneous-book.svg" | relative_url }}' alt="security docs icon">
-              <a href='{{ "/security-guide/native-image/" | relative_url }}'>
+              <a href='{{ docs_version_root | append: "/security-guide/native-image/" | relative_url }}'>
                 <div class="graal-docs__topics">Security</div>
               </a>
             </div>
@@ -114,7 +115,7 @@ layout: page_content
           <div class="graal-docs__column">
             <div class="graal-docs__card">
               <img src='{{ "/resources/img/downloads-new/miscellaneous-book.svg" | relative_url }}' alt="guides docs icon">
-              <a href='{{ "/guides/" | relative_url }}' target="_blank">
+              <a href='{{ docs_version_root | append: "/guides/" | relative_url }}' target="_blank">
                 <div class="graal-docs__topics">Guides</div>
               </a>
             </div>
@@ -126,7 +127,7 @@ layout: page_content
             </div>
             <div class="graal-docs__card">
               <img src='{{ "/resources/img/downloads-new/miscellaneous-book.svg" | relative_url }}' alt="libraries and frameworks docs icon">
-              <a href="https://www.graalvm.org/native-image/libraries-and-frameworks/" target="_blank">
+              <a href='{{ "/native-image/libraries-and-frameworks/" | relative_url }}' target="_blank">
                 <div class="graal-docs__topics">Libraries and Frameworks</div>
               </a>
             </div>
@@ -134,7 +135,7 @@ layout: page_content
           <div class="graal-docs__column">
             <div class="graal-docs__card">
               <img src='{{ "/resources/img/downloads-new/miscellaneous-book.svg" | relative_url }}' alt="reference manuals docs icon">
-              <a href='{{ "/reference-manual/native-image/basics/" | relative_url }}'>
+              <a href='{{ docs_version_root | append: "/reference-manual/native-image/basics/" | relative_url }}'>
                 <div class="graal-docs__topics">Reference Manuals</div>
               </a>
             </div>
@@ -146,7 +147,7 @@ layout: page_content
             </div>
             <div class="graal-docs__card">
               <img src='{{ "/resources/img/downloads-new/miscellaneous-book.svg" | relative_url }}' alt="web image docs icon">
-              <a href='{{ "/reference-manual/web-image/" | relative_url }}'>
+              <a href='{{ docs_version_root | append: "/reference-manual/web-image/" | relative_url }}'>
                 <div class="graal-docs__topics">Web Image</div>
               </a>
             </div>
@@ -166,13 +167,13 @@ layout: page_content
           <div class="graal-docs__column">
             <div class="graal-docs__card">
               <img src='{{ "/resources/img/downloads-new/miscellaneous-book.svg" | relative_url }}' alt="graal compiler docs icon">
-              <a href='{{ "/reference-manual/java/compiler/" | relative_url }}'>
+              <a href='{{ docs_version_root | append: "/reference-manual/java/compiler/" | relative_url }}'>
                 <div class="graal-docs__topics">Graal Compiler</div>
               </a>
             </div>
             <div class="graal-docs__card">
               <img src='{{ "/resources/img/downloads-new/miscellaneous-book.svg" | relative_url }}' alt="embedding languages in java docs icon">
-              <a href='{{ "/reference-manual/embed-languages/" | relative_url }}'>
+              <a href='{{ docs_version_root | append: "/reference-manual/embed-languages/" | relative_url }}'>
                 <div class="graal-docs__topics">Embedding Languages in Java</div>
               </a>
             </div>
@@ -180,13 +181,13 @@ layout: page_content
           <div class="graal-docs__column">
             <div class="graal-docs__card">
               <img src='{{ "/resources/img/downloads-new/miscellaneous-book.svg" | relative_url }}' alt="graalvm language runtimes docs icon">
-              <a href='{{ "/reference-manual/languages/" | relative_url }}'>
+              <a href='{{ docs_version_root | append: "/reference-manual/languages/" | relative_url }}'>
                 <div class="graal-docs__topics">Graal Languages</div>
               </a>
             </div>
             <div class="graal-docs__card">
               <img src='{{ "/resources/img/downloads-new/miscellaneous-book.svg" | relative_url }}' alt="tools for graalvm languages docs icon">
-              <a href='{{ "/tools/" | relative_url }}'>
+              <a href='{{ docs_version_root | append: "/reference-manual/tools/" | relative_url }}'>
                 <div class="graal-docs__topics">Tools for Graal Languages</div>
               </a>
             </div>
@@ -194,7 +195,7 @@ layout: page_content
           <div class="graal-docs__column">
             <div class="graal-docs__card">
               <img src='{{ "/resources/img/downloads-new/miscellaneous-book.svg" | relative_url }}' alt="truffle framework docs icon">
-              <a href='{{ "/graalvm-as-a-platform/language-implementation-framework/" | relative_url }}'>
+              <a href='{{ docs_version_root | append: "/graalvm-as-a-platform/language-implementation-framework/" | relative_url }}'>
                 <div class="graal-docs__topics">Truffle Framework</div>
               </a>
             </div>
