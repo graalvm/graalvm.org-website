@@ -821,6 +821,10 @@ Use the applicable schema from the <a href="#json-schema-reference">JSON Schema 
     </tr>
   </tbody>
 </table>
+
+<p>You can add a <code>reason</code> field to a reflection entry, resource glob or bundle entry, or foreign function entry to explain why it is needed.
+Set <code>reason</code> to a string or an array of strings.
+The <code>reason</code> value does not change registration behavior.</p>
     
       <h3 id="reflection-metadata">
         
@@ -1912,17 +1916,38 @@ As a result, this use case does not require any additional metadata.</p>
         
       </h2>
 
-<p>Java has support for loading new classes from bytecode at run time, which is not possible in Native Image as all classes must be known at build time (the “closed-world assumption”).
-To overcome this issue there are the following options:</p>
+<p>Java has support for loading new classes from bytecode at run time.
+In Native Image all classes must be known at build time (the “closed-world assumption”).
+To overcome this, choose one of the following options:</p>
 
 <ol>
   <li>Modify or reconfigure your application (or a third-party library) so that it does not generate classes at runtime or load them via non-built-in class loaders.</li>
-  <li>If the classes must be generated, try to generate them at build time in a static initializer of a dedicated class.
-The generated java.lang.Class objects should be stored in static fields and the dedicated class initialized by passing <code>--initialize-at-build-time=&lt;class_name&gt;</code> as the build argument.</li>
-  <li>If none of the above is applicable, use the <a href="/dev/reference-manual/native-image/metadata/AutomaticMetadataCollection/">Native Image Agent</a> to run the application and collect predefined classes with
-<code>java -agentlib:native-image-agent=config-output-dir=&lt;config-dir&gt;,experimental-class-define-support &lt;application-arguments&gt;</code>.
-At runtime, if there is an attempt to load a class with the same name and bytecode as one of the classes encountered during tracing, the predefined class will be supplied to the application.</li>
+  <li>Generate classes at build time in a static initializer of a dedicated class.
+The generated <code>java.lang.Class</code> objects should be stored in static fields and the dedicated class initialized by passing <code>--initialize-at-build-time=&lt;class_name&gt;</code> as the build argument.</li>
+  <li>
+    <p>Predefine classes at build time using the <a href="/dev/reference-manual/native-image/metadata/AutomaticMetadataCollection/">Native Image Agent</a> to collect <strong>predefined classes</strong>, provided their names and bytecode are stable. See <a href="#predefined-classes-for-legacy-applications">Predefined Classes for Legacy Applications</a> for a best-effort compatibility workaround.
+At run time, Native Image supplies a captured class only when its name and bytecode match those of the class being loaded.</p>
+  </li>
+  <li>If your application must define classes from bytecode at run time, enable the experimental <a href="/dev/reference-manual/native-image/runtime-class-loading/">run-time class loading feature</a> at build time.</li>
 </ol>
+    
+      <h3 id="predefined-classes-for-legacy-applications">
+        
+        
+          Predefined Classes for Legacy Applications <a href="#predefined-classes-for-legacy-applications" class="anchor_heading"><svg class='anchor-icon' width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M10 13a5 5 0 0 0 7.07 0l3.54-3.54a5 5 0 0 0-7.07-7.07L10 5'/><path d='M14 11a5 5 0 0 0-7.07 0L3.39 14.54a5 5 0 1 0 7.07 7.07L14 19'/></svg></a>
+        
+        
+      </h3>
+
+<p>Predefined classes are a best-effort compatibility fallback for legacy applications that cannot use run-time class loading.
+Prefer run-time class loading when your application can use it.
+Each predefined class can be loaded only once per execution by a single class loader, and a class with different bytecode or a different name generally does not match a captured class.</p>
+
+<p>Run the agent to collect predefined classes and create the metadata:</p>
+<pre><code class="language-shell">java -agentlib:native-image-agent=config-output-dir=&lt;config-dir&gt;,experimental-class-define-support &lt;application-arguments&gt;
+</code></pre>
+
+<p>At run time, Native Image supplies a captured class only when its name and bytecode match those of the class being loaded.</p>
 
 <p>Predefined classes metadata is specified in a <em>predefined-classes-config.json</em> file and conform to the JSON schema defined in
 <a href="/docs/reference-manual/native-image/assets/predefined-classes-config-schema-v1.0.0.json">predefined-classes-config-schema-v1.0.0.json</a>.
@@ -1940,11 +1965,6 @@ The schema also includes further details and explanations how this configuration
   }
 ]
 </code></pre>
-
-<blockquote>
-  <p>Note: Predefined classes metadata is not meant to be manually written.
-Note: Predefined classes are the best-effort approach for legacy projects, and they are not guaranteed to work.</p>
-</blockquote>
     
       <h2 id="further-reading">
         
