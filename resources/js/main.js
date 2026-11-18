@@ -571,6 +571,24 @@ $("a").each(function() {
 //Docs version dropdown
 var isOpen = false;
 
+function getVersionPathInfo() {
+   var parts = window.location.pathname.split('/').filter(function(part) { return part.length > 0; });
+   var versionIndex = parts.findIndex(function(part) {
+      return part === 'latest' || part === 'dev' || /^jdk\d+(?:\.\d+)?$/.test(part);
+   });
+   return { parts: parts, versionIndex: versionIndex };
+}
+
+function getVersionLabel(version) {
+   var options = document.querySelectorAll('.select-option[data-versions]');
+   for (var i = 0; i < options.length; i++) {
+      var versions = options[i].getAttribute('data-versions').split(/\s+/);
+      if (versions.indexOf(version) >= 0) return options[i].textContent.trim();
+   }
+   if (version.indexOf('jdk') === 0) return 'GraalVM for JDK ' + version.substr(3);
+   return version ? 'GraalVM ' + version : '';
+}
+
 function toggleOptions(e) {
 
    isOpen = !isOpen;
@@ -585,43 +603,42 @@ function toggleOptions(e) {
 }
 
 function selected(val, version) {
-   var lastPart = window.location.pathname.split('/').splice(2).join('/');
+   if (!version) return;
 
-   if (lastPart.search(/\d\d_\d/) === 0) {
+   var pathInfo = getVersionPathInfo();
+   if (pathInfo.versionIndex < 0) {
+     location = '/' + version + '/';
+     return;
+   }
+
+   var pathPrefix = pathInfo.parts.slice(0, pathInfo.versionIndex);
+   var lastParts = pathInfo.parts.slice(pathInfo.versionIndex + 1);
+
+   if (lastParts.length > 0 && /^\d\d_\d/.test(lastParts[0])) {
      if (version === 'latest' || version === 'dev')
      {
-       location = '/' + version + '/';
+       location = '/' + pathPrefix.concat(version).join('/') + '/';
        return;
      }
-     location = '/' + window.location.pathname.split('/')[1] + '/' + version.replace('.', '_');
+     location = '/' + pathPrefix.concat(pathInfo.parts[pathInfo.versionIndex], version.replace('.', '_')).join('/');
      return;
    }
 
    document.getElementById('valueText').innerHTML = val;
    document.getElementById('selectedValue').val = val;
 
-   location = '/' + version + '/' + lastPart;
+   var destination = pathPrefix.concat(version, lastParts).join('/');
+   location = '/' + destination + (window.location.pathname.endsWith('/') ? '/' : '');
    toggleOptions();
 }
 
 $(document).ready(function() {
 
-  var version = window.location.pathname.split('/')[1];
-  if (version === "latest") {
-    version = "GraalVM 25.5 (Innovation)";
-  } else if (version === "dev") {
-    version = "Dev Build";
-  } else if (version === "jdk25") {
-    version = "GraalVM 25.0 (LTS)";
-  } else if (version === "jdk21" || version === "jdk17") {
-    version = `GraalVM for JDK ${version.substr(3)} (LTS)`;
-  } else if (version.indexOf("jdk") === 0) {
-    version = `GraalVM for JDK ${version.substr(3)}`;
-  } else {
-    version = `GraalVM ${version}`;
-  }
+  var pathInfo = getVersionPathInfo();
+  var version = pathInfo.versionIndex < 0 ? '' : pathInfo.parts[pathInfo.versionIndex];
+  var versionLabel = getVersionLabel(version);
 
-  version && $('.display-version > #valueText').html(version);
+  versionLabel && $('.display-version > #valueText').text(versionLabel);
 
   // Set width for Search field input
   $('#search-box').keyup(function() {
