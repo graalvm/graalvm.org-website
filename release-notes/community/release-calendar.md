@@ -40,13 +40,10 @@ All active releases receive patch updates.
 
 GraalPy supports a new Python version once it enters the security-fix phase. See [Python versions](https://devguide.python.org/versions/) for the Python release schedule.
 
-### Understanding Release Numbering
+### Understanding Innovation Release Numbering
 
-GraalVM follows the JDK version numbering scheme described in [JEP 223](https://openjdk.org/jeps/223) (MAJOR.MINOR.SECURITY).
 The **MAJOR** number indicates the Java language specification baseline.
 The **MINOR** number indicates the feature release train, such as 25.1, 25.2, and so on.
-The **SECURITY** number indicates the CPU level of the underlying JDK update.
-For example, GraalVM 25.1.**3**, released on June 25, 2026, corresponds to the third CPU level.
 
 ## Previous Releases
 
