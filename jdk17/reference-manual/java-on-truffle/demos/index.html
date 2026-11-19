@@ -507,7 +507,7 @@ jshell&gt; 1 + 1
         
       </h2>
 
-<p>Java on Truffle is a proper part of the GraalVM ecosystem, and like other GraalVM-supported languages gets the support of developer tooling by default. The <a href="/graalvm-as-a-platform/language-implementation-framework/">Truffle framework</a> integrates with the tools like the debugger, profiler, memory analyser, the <a href="https://www.graalvm.org/truffle/javadoc/com/oracle/truffle/api/instrumentation/TruffleInstrument.html">Instrumentation API</a>.
+<p>Java on Truffle is a proper part of the GraalVM ecosystem, and like other GraalVM-supported languages gets the support of developer tooling by default. The <a href="/jdk17/graalvm-as-a-platform/language-implementation-framework/">Truffle framework</a> integrates with the tools like the debugger, profiler, memory analyser, the <a href="https://www.graalvm.org/truffle/javadoc/com/oracle/truffle/api/instrumentation/TruffleInstrument.html">Instrumentation API</a>.
 The interpreter for a language needs to mark the AST nodes with some annotations to support those tools.</p>
 
 <p>For example, to be able to use a profiler, a language interpreter needs to mark the root nodes.
@@ -559,7 +559,7 @@ You can also try an experiment with the <code>--memtracer</code> option, to see 
 <pre><code class="language-shell">java -truffle --experimental-options --memtracer Main &gt; output.txt
 </code></pre>
 
-<p>Other tools that GraalVM offers are <a href="/tools/chrome-debugger/">Chrome Debugger</a>, <a href="/tools/code-coverage/">Code Coverage</a>, and <a href="/tools/graalvm-insight/">GraalVM Insight</a>.</p>
+<p>Other tools that GraalVM offers are <a href="/jdk17/tools/chrome-debugger/">Chrome Debugger</a>, <a href="/jdk17/tools/code-coverage/">Code Coverage</a>, and <a href="/jdk17/tools/graalvm-insight/">GraalVM Insight</a>.</p>
 
 <p>Having the “out-of-the-box” support for the developer tooling makes Java on Truffle an interesting choice of the JVM.</p>
 
