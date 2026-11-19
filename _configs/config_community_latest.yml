@@ -114,6 +114,7 @@ tables_of_contents:
         links: [
           release-notes/community/release-calendar.md,
           release-notes/vulnerability-advisories.md,
+          release-notes/community/graalvm-ce-25.6.md,
           release-notes/community/graalvm-ce-25.5.md,
           release-notes/community/graalvm-ce-25.4.md,
           release-notes/community/graalvm-ce-25.3.md,
@@ -411,9 +412,7 @@ plugins:
 
 exclude:
   - _site
-  - jdk25.5
   - dev
-  - pages/native-image/libraries-and-frameworks-with-header.md
   - docs/getting-started/container-images/oracle*.md
   - docs/getting-started/oci
   - docs/oracle-graalvm
