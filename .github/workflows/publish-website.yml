@@ -75,8 +75,8 @@ jobs:
           cd "${{ github.workspace }}/gh-pages"
           git add --all
 
-          if git diff --cached --quiet; then
-            echo 'No generated changes to publish.'
+          if git diff --cached --quiet -- . ':(top,exclude)feed.xml' ':(top,exclude)sitemap.xml'; then
+            echo 'No generated changes to publish (ignoring feed.xml and sitemap.xml).'
             exit 0
           fi
           git diff --cached --name-status
