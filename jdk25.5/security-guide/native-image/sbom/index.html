@@ -60,7 +60,7 @@
           <a href='/latest/docs/' class="menu__link">Docs</a>
         </li>
         <li class="menu__item">
-          <a href='/guides/' class="menu__link">Guides</a>
+          <a href='/jdk25.5/guides/' class="menu__link">Guides</a>
         </li>
         <li class="menu__item">
           <a href="https://medium.com/graalvm" class="menu__link" target="_blank">Blog</a>
@@ -105,7 +105,7 @@
                   </div>
                   <div class="stack__item">
                     <img src="/resources/img/header-navigation/java-navi.svg">
-                    <a href='/reference-manual/java-on-truffle/' class="item-line">Espresso</a>
+                    <a href='/jdk25.5/reference-manual/java-on-truffle/' class="item-line">Espresso</a>
                   </div>
                 </div>
               </div>
@@ -131,6 +131,7 @@
   </div>
   
 </header>
+
       <main class="content" aria-label="Content">
         <div class="wrapper wrapper-content">
   <article>
@@ -187,11 +188,11 @@ $(document).ready(function(){
         <span class="value-text" id="valueText">Version</span>
       </div>
       <ul tabindex="0" class="select-container" id="selectContainer" onblur="toggleOptions(event)">
-        <li class="select-option" onclick="selected('GraalVM 25.5 (Innovation)', 'latest');">GraalVM 25.5 (Innovation)</li>
-        <li class="select-option" onclick="selected('GraalVM 25.0 (LTS)', 'jdk25');">GraalVM 25.0 (LTS)</li>
-        <li class="select-option" onclick="selected('GraalVM for JDK 21 (LTS)', 'jdk21');">GraalVM for JDK 21 (LTS)</li>
-        <li class="select-option" onclick="selected('GraalVM for JDK 17 (LTS)', 'jdk17');">GraalVM for JDK 17 (LTS)</li>
-        <li class="select-option" onclick="window.open('https://github.com/oracle/graal/tree/master/docs', '_blank').focus()">Dev Build</li>
+        <li class="select-option" data-versions="latest jdk25.5" onclick="selected('GraalVM 25.5 (Innovation)', 'latest');">GraalVM 25.5 (Innovation)</li>
+        <li class="select-option" data-versions="jdk25" onclick="location='/jdk25/docs/'">GraalVM 25.0</li>
+        <li class="select-option" data-versions="jdk21" onclick="location='/jdk21/docs/'">GraalVM for JDK 21</li>
+        <li class="select-option" data-versions="jdk17" onclick="location='/jdk17/docs/'">GraalVM for JDK 17</li>
+        <li class="select-option" data-versions="dev" onclick="window.open('https://github.com/oracle/graal/tree/master/docs', '_blank').focus()">Dev Build</li>
       </ul>
     </div>
   </div>
@@ -359,23 +360,6 @@ $(document).ready(function(){
           </li>
 
           
-        
-      
-    
-      
-        
-          <li class="toc-bullets-main">
-        
-          
-          <a href="/pages/javadocs/jdk25.5.html">
-            SDK Javadocs
-          </a>
-        </li>
-
-        
-        
-
-        
         
       
     
@@ -1130,7 +1114,7 @@ When this happens, all unresolved metadata gets collected in a placeholder compo
         <div class="rubber-footer">
           <p class="title-footer quickstart">Get started with GraalVM</p>
           <p class="footer-desc">Available for Linux, macOS, and Windows platforms</p>
-          <a href="/latest/docs/getting-started/" class="btn btn-primary">Get Started</a>
+          <a href="/latest/getting-started/" class="btn btn-primary">Get Started</a>
         </div>
       </div>
       <div class="footer__columns">
