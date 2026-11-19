@@ -430,7 +430,6 @@ plugins:
 exclude:
   - _site
   - dev
-  - pages/native-image/libraries-and-frameworks-with-header.md
   - docs/getting-started/container-images/oracle*.md
   - docs/getting-started/oci
   - docs/oracle-graalvm
