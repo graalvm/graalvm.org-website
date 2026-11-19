@@ -5,7 +5,7 @@ email: graal-users@oss.oracle.com
 description: GraalVM is an advanced JDK with ahead-of-time Native Image compilation.
 url: "https://www.graalvm.org"
 baseurl: ""
-version: jdk25.5
+version: jdk25.6
 header_links: []
 
 tables_of_contents:
