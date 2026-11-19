@@ -16,7 +16,7 @@ Where to make a change:
 
    ```bash
    bundle install
-   ./_scripts/build-website-dev.sh
+   ./_scripts/build-website.sh
    ```
 
 3. Verify changed links, redirects, and rendered pages in `_site/`.
