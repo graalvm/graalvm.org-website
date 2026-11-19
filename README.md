@@ -15,13 +15,6 @@ bundle install
 
 The generated site is written to `_site/`, which is ignored by Git.
 
-For a shorter local build of the current and JDK 25 documentation, run:
-
-```bash
-./_scripts/build-website-dev.sh
-bundle exec jekyll serve --source _site
-```
-
 ## Contributing
 
 Make product-documentation changes in [oracle/graal](https://github.com/oracle/graal).
