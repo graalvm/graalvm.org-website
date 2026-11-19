@@ -5,7 +5,7 @@ email: graal-users@oss.oracle.com
 description: GraalVM is an advanced JDK with ahead-of-time Native Image compilation.
 url: "https://www.graalvm.org"
 baseurl: ""
-version: jdk25.6
+version: jdk25.5
 header_links: []
 
 tables_of_contents:
@@ -34,11 +34,7 @@ tables_of_contents:
       - main_link: docs/reference-manual/reference-manuals.md
       - main_link: docs/graalvm-as-a-platform/graalvm-as-a-platform.md
       - main_link: docs/security/security-guide.md
-<<<<<<< HEAD
 
-=======
-      - main_link: pages/javadocs/jdk25i.md
->>>>>>> 614df6af (Prepare website for GraalVM 25.6 release)
   - toc_group: getting-started
     subgroups:
       - main_link: docs/getting-started/get-started.md
@@ -46,11 +42,7 @@ tables_of_contents:
       - main_link: docs/reference-manual/reference-manuals.md
       - main_link: docs/graalvm-as-a-platform/graalvm-as-a-platform.md
       - main_link: docs/security/security-guide.md
-<<<<<<< HEAD
 
-=======
-      - main_link: pages/javadocs/jdk25i.md
->>>>>>> 614df6af (Prepare website for GraalVM 25.6 release)
   - toc_group: container-images
     subgroups:
       - main_link: docs/getting-started/get-started.md
@@ -58,11 +50,7 @@ tables_of_contents:
       - main_link: docs/reference-manual/reference-manuals.md
       - main_link: docs/graalvm-as-a-platform/graalvm-as-a-platform.md
       - main_link: docs/security/security-guide.md
-<<<<<<< HEAD
 
-=======
-      - main_link: pages/javadocs/jdk25i.md
->>>>>>> 614df6af (Prepare website for GraalVM 25.6 release)
   - toc_group: reference-manual
     subgroups:
       - main_link: docs/getting-started/get-started.md
@@ -77,11 +65,7 @@ tables_of_contents:
         ]
       - main_link: docs/graalvm-as-a-platform/graalvm-as-a-platform.md
       - main_link: docs/security/security-guide.md
-<<<<<<< HEAD
 
-=======
-      - main_link: pages/javadocs/jdk25i.md
->>>>>>> 614df6af (Prepare website for GraalVM 25.6 release)
   - toc_group: embedding
     subgroups:
       - main_link: docs/getting-started/get-started.md
@@ -96,11 +80,7 @@ tables_of_contents:
         ]
       - main_link: docs/graalvm-as-a-platform/graalvm-as-a-platform.md
       - main_link: docs/security/security-guide.md
-<<<<<<< HEAD
 
-=======
-      - main_link: pages/javadocs/jdk25i.md
->>>>>>> 614df6af (Prepare website for GraalVM 25.6 release)
   - toc_group: graalvm-as-a-platform
     subgroups:
       - main_link: docs/getting-started/get-started.md
@@ -113,11 +93,7 @@ tables_of_contents:
           docs/graalvm-as-a-platform/implement-instrument.md
         ]
       - main_link: docs/security/security-guide.md
-<<<<<<< HEAD
 
-=======
-      - main_link: pages/javadocs/jdk25i.md
->>>>>>> 614df6af (Prepare website for GraalVM 25.6 release)
   - toc_group: security-guide
     subgroups:
       - main_link: docs/getting-started/get-started.md
@@ -131,18 +107,14 @@ tables_of_contents:
           docs/security/SBOM.md,
           docs/security/polyglot-sandbox.md
         ]
-<<<<<<< HEAD
 
-=======
-      - main_link: pages/javadocs/jdk25i.md
->>>>>>> 614df6af (Prepare website for GraalVM 25.6 release)
   - toc_group: release-notes
     subgroups:
       - main_link: release-notes/community/release-notes.md
         links: [
           release-notes/community/release-calendar.md,
           release-notes/vulnerability-advisories.md,
-          release-notes/community/graalvm-ce-25.6.md,
+         release-notes/community/graalvm-ce-25.6.md,
           release-notes/community/graalvm-ce-25.5.md,
           release-notes/community/graalvm-ce-25.4.md,
           release-notes/community/graalvm-ce-25.3.md,
@@ -296,7 +268,6 @@ tables_of_contents:
       - main_link: docs/reference-manual/native-image/NativeImageBasics.md
       - main_link: docs/reference-manual/native-image/BuildOverview.md
       - main_link: docs/reference-manual/native-image/ReachabilityMetadata.md
-      - main_link: docs/reference-manual/native-image/RuntimeClassLoading.md
       - main_link: docs/reference-manual/native-image/OptimizationsAndPerformance.md
       - main_link: docs/reference-manual/native-image/DebuggingAndDiagnostics.md
       - main_link: docs/reference-manual/native-image/DynamicFeatures.md
@@ -317,7 +288,6 @@ tables_of_contents:
           docs/reference-manual/native-image/BuildOptions.md
         ]
       - main_link: docs/reference-manual/native-image/ReachabilityMetadata.md
-      - main_link: docs/reference-manual/native-image/RuntimeClassLoading.md
       - main_link: docs/reference-manual/native-image/OptimizationsAndPerformance.md
       - main_link: docs/reference-manual/native-image/DebuggingAndDiagnostics.md
       - main_link: docs/reference-manual/native-image/DynamicFeatures.md
@@ -331,7 +301,6 @@ tables_of_contents:
       - main_link: docs/reference-manual/native-image/NativeImageBasics.md
       - main_link: docs/reference-manual/native-image/BuildOverview.md
       - main_link: docs/reference-manual/native-image/ReachabilityMetadata.md
-      - main_link: docs/reference-manual/native-image/RuntimeClassLoading.md
         links: [
           docs/reference-manual/native-image/Compatibility.md,
           docs/reference-manual/native-image/AutomaticMetadataCollection.md,
@@ -350,7 +319,6 @@ tables_of_contents:
       - main_link: docs/reference-manual/native-image/NativeImageBasics.md
       - main_link: docs/reference-manual/native-image/BuildOverview.md
       - main_link: docs/reference-manual/native-image/ReachabilityMetadata.md
-      - main_link: docs/reference-manual/native-image/RuntimeClassLoading.md
       - main_link: docs/reference-manual/native-image/OptimizationsAndPerformance.md
         links: [
           docs/reference-manual/native-image/MemoryManagement.md,
@@ -382,7 +350,6 @@ tables_of_contents:
       - main_link: docs/reference-manual/native-image/NativeImageBasics.md
       - main_link: docs/reference-manual/native-image/BuildOverview.md
       - main_link: docs/reference-manual/native-image/ReachabilityMetadata.md
-      - main_link: docs/reference-manual/native-image/RuntimeClassLoading.md
       - main_link: docs/reference-manual/native-image/OptimizationsAndPerformance.md
       - main_link: docs/reference-manual/native-image/DebuggingAndDiagnostics.md
         links: [
@@ -405,7 +372,6 @@ tables_of_contents:
       - main_link: docs/reference-manual/native-image/NativeImageBasics.md
       - main_link: docs/reference-manual/native-image/BuildOverview.md
       - main_link: docs/reference-manual/native-image/ReachabilityMetadata.md
-      - main_link: docs/reference-manual/native-image/RuntimeClassLoading.md
       - main_link: docs/reference-manual/native-image/OptimizationsAndPerformance.md
       - main_link: docs/reference-manual/native-image/DebuggingAndDiagnostics.md
       - main_link: docs/reference-manual/native-image/DynamicFeatures.md
@@ -425,7 +391,6 @@ tables_of_contents:
       - main_link: docs/reference-manual/native-image/NativeImageBasics.md
       - main_link: docs/reference-manual/native-image/BuildOverview.md
       - main_link: docs/reference-manual/native-image/ReachabilityMetadata.md
-      - main_link: docs/reference-manual/native-image/RuntimeClassLoading.md
       - main_link: docs/reference-manual/native-image/OptimizationsAndPerformance.md
       - main_link: docs/reference-manual/native-image/DebuggingAndDiagnostics.md
       - main_link: docs/reference-manual/native-image/DynamicFeatures.md
@@ -444,7 +409,6 @@ tables_of_contents:
       - main_link: docs/reference-manual/native-image/NativeImageBasics.md
       - main_link: docs/reference-manual/native-image/BuildOverview.md
       - main_link: docs/reference-manual/native-image/ReachabilityMetadata.md
-      - main_link: docs/reference-manual/native-image/RuntimeClassLoading.md
       - main_link: docs/reference-manual/native-image/OptimizationsAndPerformance.md
       - main_link: docs/reference-manual/native-image/DebuggingAndDiagnostics.md
       - main_link: docs/reference-manual/native-image/DynamicFeatures.md
@@ -465,13 +429,6 @@ plugins:
 
 exclude:
   - _site
-<<<<<<< HEAD
-=======
-  - jdk25.6
-  - jdk25
-  - jdk21
-  - jdk17
->>>>>>> 614df6af (Prepare website for GraalVM 25.6 release)
   - dev
   - pages/native-image/libraries-and-frameworks-with-header.md
   - docs/getting-started/container-images/oracle*.md
