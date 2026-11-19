@@ -11,7 +11,7 @@ _graalvm-reachability-metadata/
 _includes/native-image-tested-libraries-and-frameworks.html
 
 # Generated Jekyll output and intermediate versioned sites.
-_site/
+_site
 jdk25.6/
 jdk25/
 jdk21/
