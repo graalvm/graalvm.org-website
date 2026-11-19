@@ -1,7 +1,7 @@
 ---
 layout: docs
 link_title: GraalJS Documentation
-permalink: "/$version/javascript/docs/"
+permalink: "/javascript/docs/"
 redirect_to: "/javascript/docs/"
 redirect_from:
 - "/reference-manual/js/"
@@ -19,21 +19,4 @@ redirect_from:
 - "/reference-manual/js/RunOnJDK/"
 - "/reference-manual/js/ScriptEngine/"
 - "/reference-manual/js/FAQ/"
-- "/javascript/docs/"
-- "/$version/reference-manual/js/"
-- "/$version/docs/reference-manual/js/"
-- "/$version/reference-manual/js/JavaInteroperability/"
-- "/$version/reference-manual/js/JavaScriptCompatibility/"
-- "/$version/reference-manual/js/Modules/"
-- "/$version/reference-manual/js/Multithreading/"
-- "/$version/reference-manual/js/NashornMigrationGuide/"
-- "/$version/reference-manual/js/NodeJS/"
-- "/$version/reference-manual/js/NodeJSvsJavaScriptContext/"
-- "/$version/reference-manual/js/OperatorOverloading/"
-- "/$version/reference-manual/js/Options/"
-- "/$version/reference-manual/js/RhinoMigrationGuide/"
-- "/$version/reference-manual/js/RunOnJDK/"
-- "/$version/reference-manual/js/ScriptEngine/"
-- "/$version/reference-manual/js/FAQ/"
-title: GraalJS Documentation
 ---
