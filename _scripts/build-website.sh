@@ -3,15 +3,10 @@ set -ex
 export JEKYLL_ENV=production
 
 # Build the libraries and frameworks page from the latest metadata
-if [[ -e _graalvm-reachability-metadata ]]; then
-  echo "_graalvm-reachability-metadata already exists; remove it before building." >&2
-  exit 1
+if [[ ! -d _graalvm-reachability-metadata ]]; then
+  git clone --depth 1 https://github.com/oracle/graalvm-reachability-metadata.git _graalvm-reachability-metadata
 fi
-trap 'rm -rf _graalvm-reachability-metadata' EXIT
-git clone --depth 1 https://github.com/oracle/graalvm-reachability-metadata.git _graalvm-reachability-metadata
 ruby _scripts/generate-library-and-framework-list.rb
-
-cp pages/native-image/libraries-and-frameworks-with-header.md pages/native-image/libraries-and-frameworks.md
 
 # Build the latest documentation
 # Build the non-versioned site and redirects for non-versioned URLs
