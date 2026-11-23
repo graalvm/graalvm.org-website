@@ -2365,6 +2365,34 @@ public class AccessJavaFromJS {
 
 <p>Now, you can add <code>reachability-metadata.json</code> to <code>META-INF/native-image/&lt;group-id&gt;/</code> of your project.</p>
     
+      <h3 id="generating-guest-to-java-interface-proxies">
+        
+        
+          Generating Guest-to-Java Interface Proxies <a href="#generating-guest-to-java-interface-proxies" class="anchor_heading"><svg class='anchor-icon' width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M10 13a5 5 0 0 0 7.07 0l3.54-3.54a5 5 0 0 0-7.07-7.07L10 5'/><path d='M14 11a5 5 0 0 0-7.07 0L3.39 14.54a5 5 0 1 0 7.07 7.07L14 19'/></svg></a>
+        
+        
+      </h3>
+
+<p>Use <code>@HostAccess.Optimized</code> for fast access to guest object members or execution of guest functions through a Java interface.
+This is the recommended approach for performance-sensitive interface calls.
+Annotate a public, non-sealed interface and convert the guest value with <code>Value.as</code>:</p>
+
+<pre><code class="language-java">import org.graalvm.polyglot.HostAccess;
+import org.graalvm.polyglot.Value;
+
+@HostAccess.Optimized
+@HostAccess.Implementable
+public interface Arithmetic {
+    double add(int left, int right);
+    double subtract(int left, int right);
+}
+</code></pre>
+
+<p>Convert a guest object exposing <code>add</code> and <code>subtract</code> with <code>value.as(Arithmetic.class)</code>.
+<code>@HostAccess.Implementable</code> permits the conversion under the default host access policy.</p>
+
+<p>Native Image generates and registers proxies for annotated interfaces included in the image at build time; HotSpot generates them on first use.</p>
+    
       <h2 id="manage-the-lifecycle-of-contexts-and-engines">
         
         
