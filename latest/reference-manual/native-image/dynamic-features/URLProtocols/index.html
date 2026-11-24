@@ -188,7 +188,7 @@ $(document).ready(function(){
         <span class="value-text" id="valueText">Version</span>
       </div>
       <ul tabindex="0" class="select-container" id="selectContainer" onblur="toggleOptions(event)">
-        <li class="select-option" data-versions="latest jdk25.5" onclick="selected('GraalVM 25.5 (Innovation)', 'latest');">GraalVM 25.5 (Innovation)</li>
+        <li class="select-option" data-versions="latest jdk25.6" onclick="selected('GraalVM 25.6 (Innovation)', 'latest');">GraalVM 25.6 (Innovation)</li>
         <li class="select-option" data-versions="jdk25" onclick="location='/jdk25/docs/'">GraalVM 25.0</li>
         <li class="select-option" data-versions="jdk21" onclick="location='/jdk21/docs/'">GraalVM for JDK 21</li>
         <li class="select-option" data-versions="jdk17" onclick="location='/jdk17/docs/'">GraalVM for JDK 17</li>
@@ -598,6 +598,23 @@ and reports the handler class that must be added to reachability metadata.</p>
 
 <p>The <code>--enable-http</code>, <code>--enable-https</code>, and <code>--enable-url-protocols</code> options are deprecated.
 Use reachability metadata instead.</p>
+    
+      <h2 id="embedded-resource-protocol">
+        
+        
+          Embedded-Resource Protocol <a href="#embedded-resource-protocol" class="anchor_heading"><svg class='anchor-icon' width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M10 13a5 5 0 0 0 7.07 0l3.54-3.54a5 5 0 0 0-7.07-7.07L10 5'/><path d='M14 11a5 5 0 0 0-7.07 0L3.39 14.54a5 5 0 1 0 7.07 7.07L14 19'/></svg></a>
+        
+        
+      </h2>
+
+<p>Embedded-resource URLs and the Native Image filesystem provider use the <code>resource</code> scheme by default.
+You can select a different scheme at image build time with the hosted option <code>-H:ResourceProtocol=&lt;scheme&gt;</code>.
+Native Image normalizes the selected scheme to lowercase at build time because schemes are case-insensitive.
+The selected scheme applies to embedded-resource URLs, URIs, URL handlers, and NIO filesystem lookup and cannot be changed at run time.</p>
+
+<p>Choose an unused scheme that starts with an ASCII letter and contains only ASCII letters, digits, <code>+</code>, <code>-</code>, or <code>.</code>.
+The image builder rejects empty or syntactically invalid scheme names.
+The schemes <code>file</code>, <code>jrt</code>, and <code>url</code> are reserved by the JDK and cannot be used for embedded resources.</p>
     
       <h2 id="https-support">
         

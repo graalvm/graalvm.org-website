@@ -188,7 +188,7 @@ $(document).ready(function(){
         <span class="value-text" id="valueText">Version</span>
       </div>
       <ul tabindex="0" class="select-container" id="selectContainer" onblur="toggleOptions(event)">
-        <li class="select-option" data-versions="latest jdk25.5" onclick="selected('GraalVM 25.5 (Innovation)', 'latest');">GraalVM 25.5 (Innovation)</li>
+        <li class="select-option" data-versions="latest jdk25.6" onclick="selected('GraalVM 25.6 (Innovation)', 'latest');">GraalVM 25.6 (Innovation)</li>
         <li class="select-option" data-versions="jdk25" onclick="location='/jdk25/docs/'">GraalVM 25.0</li>
         <li class="select-option" data-versions="jdk21" onclick="location='/jdk21/docs/'">GraalVM for JDK 21</li>
         <li class="select-option" data-versions="jdk17" onclick="location='/jdk17/docs/'">GraalVM for JDK 17</li>
@@ -1125,9 +1125,14 @@ These deprecated URL protocol options are omitted from the generated table; see 
 
 <p>Native Image argument files use UTF-8 and follow the <a href="https://docs.oracle.com/en/java/javase/25/docs/specs/man/java.html#java-command-line-argument-files">Java launcher argument-file specification</a>.
 All of its syntax rules apply.
-To enable option-value continuations, put <code># native-image: value-continuations</code> on the first line of the file.
-The marker must match exactly.
-A standalone <code># native-image:</code> directive must start the first line; unknown settings or misplaced directives are errors.</p>
+Command-line argument-file paths follow the Java launcher’s filesystem lookup rules, including symbolic links and <code>..</code>.
+For compatibility with the Java launcher, Native Image does not restrict these paths to a containing directory.
+Recursive includes from those files use the same lookup rules.
+A standalone <code># native-image:</code> directive must start the first line; unknown or duplicate settings and misplaced directives are errors.
+Separate settings with one or more spaces.
+Whitespace after the colon and at the end of the directive is optional.
+Use <code>value-continuations</code> to enable option-value continuations, and <code>recursive-argument-files</code> to let the file include other argument files.
+You can enable both settings on the same line.</p>
 
 <p>An option ending in <code>=...</code> starts an option-value continuation.
 Subsequent arguments within the file are joined with commas until an empty or whitespace-only line, another option ending in <code>=...</code>, or the end of the file.
@@ -1138,7 +1143,34 @@ A continuation with no entries produces an empty option value.</p>
 <p>Continuation headers are recognized after Java-style tokenization removes quotes, so <code>-H:IncludeResources="..."</code> also starts a continuation.
 To pass <code>...</code> as a literal option value, specify the option directly on the command line or in an argument file without the marker.</p>
 
-<p>For example, <em>preserve.args</em> can contain:</p>
+<p>To include another argument file, put its <code>@file</code> reference in an argument file whose first line includes the <code>recursive-argument-files</code> setting.
+The included file’s arguments are inlined at the location of the <code>@file</code> reference.
+Resolve nested references relative to the file that contains them.
+Each file controls its own recursion setting, so an unmarked file is a leaf and its <code>@file</code> tokens remain literal.
+When a file enables both <code>value-continuations</code> and <code>recursive-argument-files</code>, Native Image joins its option-value continuations before expanding includes.
+An <code>@file</code> token consumed as a continuation value remains a value, and continuations do not cross file boundaries.
+Use <code>@@file</code> to pass a literal <code>@file</code> token from a file that enables recursive argument files.
+The <code>--disable-@files</code> option prevents later argument-file references from being expanded and disables <code>@@</code> unescaping.
+When used in an included file, it also affects the remaining arguments in the including files and subsequent command-line arguments in the same preprocessing stream.
+Each <em>native-image.properties</em> file and macro option is processed in a separate stream with its own disable state.
+Native Image reports include cycles with their include chain and rejects nesting deeper than 64 files, including the top-level argument file.
+If the top-level file enables <code>recursive-argument-files</code>, its expansion has a cumulative budget of 16,777,216 input characters, measured in Java UTF-16 code units.
+The budget counts the complete contents of the root and every included file before parsing, including comments and whitespace.
+Each inclusion counts again, even when it refers to a previously included file; each top-level file starts with a fresh budget.
+Recursion can turn small files into a huge expansion, so enabling it also selects this more conservative limit.
+Without recursion enabled on the top-level file, the Java launcher’s existing per-file ceiling of 2,147,483,647 bytes applies.</p>
+
+<p>For example, <em>layer.args</em> can include <em>common.args</em> before its own options:</p>
+
+<pre><code class="language-text"># native-image: value-continuations recursive-argument-files
+
+@common.args
+
+-H:IncludeResources=...
+    my/application/.*
+</code></pre>
+
+<p>The following <em>preserve.args</em> file groups <code>-H:Preserve</code> and <code>-H:IncludeResources</code> values using option-value continuations:</p>
 
 <pre><code class="language-text"># native-image: value-continuations
 
@@ -1159,9 +1191,13 @@ To pass <code>...</code> as a literal option value, specify the option directly 
 </code></pre>
 
 <p>You can also use <code>@file</code> in the <code>Args</code> property of <em>native-image.properties</em>.
-File paths must be relative to the directory containing the properties file; for properties embedded in a JAR, the referenced file is read from the same JAR.
+The top-level file path is relative to the directory containing the properties file; nested references are relative to the including file.
+For properties embedded in a JAR, all referenced files are read from that JAR.
 For macro options, paths are relative to the macro option directory.
-References must stay within the containing class-path or module-path entry, or macro option directory; references that escape it are rejected.
+Embedded references must be relative paths that, after normalization of <code>.</code> and <code>..</code>, stay within the containing class-path or module-path entry, or macro option directory.
+This containment check is lexical: it does not resolve symbolic links.
+For files read from the filesystem, symbolic links are followed and can lead outside that entry or directory.
+These Native Image containment rules apply to both top-level embedded references and their recursive includes.
 Expanded options retain the origin of the properties file and its restrictions.</p>
     
       <h2 id="list-of-useful-options">
