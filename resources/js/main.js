@@ -585,8 +585,40 @@ function getVersionLabel(version) {
       var versions = options[i].getAttribute('data-versions').split(/\s+/);
       if (versions.indexOf(version) >= 0) return options[i].textContent.trim();
    }
+   if (version === 'jdk25') return 'GraalVM 25.0';
    if (version.indexOf('jdk') === 0) return 'GraalVM for JDK ' + version.substr(3);
    return version ? 'GraalVM ' + version : '';
+}
+
+function applyCurrentInnovationVersion(versionInfo) {
+   if (!versionInfo || !versionInfo.siteVersion || !versionInfo.label) return;
+
+   document.querySelectorAll('.select-option').forEach(function(option) {
+      option.textContent = option.textContent.replace(/\s+\(LTS\)$/, '');
+   });
+   document.querySelectorAll('.select-container').forEach(function(menu) {
+      var currentOption = menu.querySelector('.select-option[data-current-innovation]') || menu.querySelector('.select-option');
+      if (currentOption) {
+         currentOption.textContent = versionInfo.label;
+         currentOption.setAttribute('data-versions', 'latest ' + versionInfo.siteVersion);
+      }
+   });
+
+   var pathInfo = getVersionPathInfo();
+   var version = pathInfo.parts[pathInfo.versionIndex] || '';
+   if (version === 'latest' || version === versionInfo.siteVersion) {
+      $('.display-version > #valueText').text(versionInfo.label);
+   }
+}
+
+if (window.fetch) {
+   fetch('/resources/js/current-feature-version.json', { cache: 'no-store' })
+      .then(function(response) {
+         if (!response.ok) throw new Error('Unable to load the current feature version');
+         return response.json();
+      })
+      .then(applyCurrentInnovationVersion)
+      .catch(function() {});
 }
 
 function toggleOptions(e) {
