@@ -188,7 +188,7 @@ $(document).ready(function(){
         <span class="value-text" id="valueText">Version</span>
       </div>
       <ul tabindex="0" class="select-container" id="selectContainer" onblur="toggleOptions(event)">
-        <li class="select-option" data-versions="latest jdk25.6" onclick="selected('GraalVM 25.6 (Innovation)', 'latest');">GraalVM 25.6 (Innovation)</li>
+        <li class="select-option" data-versions="latest jdk25.6" onclick="selected('GraalVM 25i (Innovation)', 'latest');">GraalVM 25i (Innovation)</li>
         <li class="select-option" data-versions="jdk25" onclick="location='/jdk25/docs/'">GraalVM 25.0</li>
         <li class="select-option" data-versions="jdk21" onclick="location='/jdk21/docs/'">GraalVM for JDK 21</li>
         <li class="select-option" data-versions="jdk17" onclick="location='/jdk17/docs/'">GraalVM for JDK 17</li>
@@ -903,7 +903,7 @@ These deprecated URL protocol options are omitted from the generated table; see 
     <tr>
       <td><code>-march</code></td>
       <td>String</td>
-      <td>generate instructions for a specific machine type. Defaults to ‘x86-64-v3’ on AMD64 and ‘armv8.1-a’ on AArch64. Use -march=compatibility for best compatibility, or -march=native for best performance if the native executable is deployed on the same machine or on a machine with the same CPU features. To list all available machine types, use -march=list.</td>
+      <td>generate instructions for a specific machine type. Defaults to ‘x86-64-v3’ on AMD64, ‘armv8.1-a’ on Linux AArch64, and ‘apple-m1’ on macOS AArch64. Use -march=compatibility for best compatibility, or -march=native for best performance if the native executable is deployed on the same machine or on a machine with the same CPU features. To list all available machine types, use -march=list.</td>
       <td>None</td>
       <td><code>-march=-march</code></td>
     </tr>

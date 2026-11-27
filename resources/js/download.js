@@ -160,7 +160,7 @@ curl -LO ${baseUrl}/archive/graalvm-jdk-${archiveVersion}_${platform}_bin.${file
 function updateDownloadButton(majorJavaVersion) {
   let versionLabel = '';
   if (majorJavaVersion === "25.6") {
-    versionLabel = "25.6 (Innovation)";
+    versionLabel = "25i (Innovation)";
   } else if (majorJavaVersion === "25") {
     versionLabel = "25.0 (LTS)";
   } else if (majorJavaVersion === "21") {
